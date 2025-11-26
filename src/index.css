@@ -1,0 +1,82 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Styles */
+@layer base {
+  body {
+    @apply bg-slate-50 dark:bg-slate-950 transition-colors duration-300;
+    background-image: radial-gradient(rgba(0, 0, 0, 0.1) 1px, transparent 1px);
+    background-size: 20px 20px;
+  }
+
+  .dark body {
+    background-image: radial-gradient(rgba(255, 255, 255, 0.1) 1px, transparent 1px);
+  }
+}
+
+.gradient-text {
+  @apply bg-clip-text text-transparent bg-gradient-to-r from-blue-500 to-purple-600;
+}
+
+.btn-primary {
+  @apply px-6 py-3 rounded-lg bg-gradient-to-r from-blue-500 to-purple-600 text-white font-semibold hover:opacity-90 transition-opacity shadow-md hover:shadow-lg;
+}
+
+.btn-secondary {
+  @apply px-6 py-3 rounded-lg border border-slate-300 dark:border-slate-600 text-slate-700 dark:text-white font-semibold hover:bg-slate-100 dark:hover:bg-slate-800 transition-colors;
+}
+
+.section-title {
+  @apply text-3xl md:text-4xl font-bold text-center mb-12;
+}
+
+.form-input {
+  @apply w-full bg-white dark:bg-slate-700 text-slate-900 dark:text-white rounded-lg px-4 py-3 mb-4 border border-slate-200 dark:border-slate-600 focus:outline-none focus:ring-2 focus:ring-blue-500 transition-colors;
+}
+
+@keyframes pulse-slow {
+
+  0%,
+  100% {
+    opacity: 0.5;
+    transform: translateX(-50%) scale(1);
+  }
+
+  50% {
+    opacity: 0.7;
+    transform: translateX(-50%) scale(1.05);
+  }
+}
+
+.animate-pulse-slow {
+  animation: pulse-slow 8s infinite ease-in-out;
+}
+
+.earth-container {
+  z-index: -1;
+}
+
+.earth {
+  /* Earth Night Lights Texture - High Quality */
+  background-image: url('https://upload.wikimedia.org/wikipedia/commons/b/ba/The_earth_at_night.jpg');
+  background-size: 200% 100%;
+  /* Double width for seamless loop */
+  background-repeat: repeat-x;
+  animation: rotate-earth 200s linear infinite;
+  box-shadow:
+    inset 0 0 60px rgba(0, 0, 0, 0.9),
+    /* Inner shadow for depth */
+    0 0 30px rgba(59, 130, 246, 0.3);
+  /* Outer glow */
+}
+
+@keyframes rotate-earth {
+  0% {
+    background-position-x: 0%;
+  }
+
+  100% {
+    background-position-x: 200%;
+  }
+}
